@@ -4,18 +4,32 @@ using UnitTestAndDebug;
 
 namespace Tests
 {
+    [TestFixture]
     public class Tests
     {
-        [SetUp]
-        public void Setup()
+
+        [Test]
+        public void TestName() 
         {
-            // Insertá tu código de inicialización aquí
+            Person p = new Person("Néstor Martínez", "5.241.238-0","3/7/2002");
+            string expected = "Néstor Martínez";
+            Assert.AreEqual(expected, p.Name);
         }
 
         [Test]
-        public void Test1() // Cambiá el nombre para indicar qué estás probando
+        public void TestID() 
         {
-            // Insertá tu código  de pruebaaquí
+            Person p = new Person("Néstor Martínez", "5.241.238-0","3/7/2002");
+            string expected = "5.241.238-0";
+            Assert.AreEqual(expected, p.ID);
+        }
+
+        [Test]
+        public void TestDateOfBirth() 
+        {
+            Person p = new Person("Néstor Martínez", "5.241.238-0","-1/7/2002");
+            string expected = null;
+            Assert.AreEqual(expected, p.DateOfBirth);
         }
     }
 }

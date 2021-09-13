@@ -1,18 +1,40 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime;
 
 namespace UnitTestAndDebug
 {
     public class Person
     {
-        public Person(string name, string id)
+        public Person(string name, string id, string dateOfBirth)
         {
             this.Name = name;
             this.ID = id;
+            this.DateOfBirth = dateOfBirth;
         }
 
         private string name;
 
         private string id;
+
+        private string dateOfBirth;
+
+        public string DateOfBirth
+
+        {
+            get
+            {
+                return this.dateOfBirth;
+            }
+            
+            set
+            {
+               if(BirthCheck.DateOfBirthIsValid(value))
+               {
+                this.dateOfBirth = value; 
+               }
+            }
+        }
 
         public string Name
         {
@@ -47,7 +69,7 @@ namespace UnitTestAndDebug
 
         public void IntroduceYourself()
         {
-            Console.WriteLine($"Soy {this.Name} y mi cédula es {this.ID}");
+            Console.WriteLine($"Soy {this.Name}, naci el {this.DateOfBirth} y mi cédula es {this.ID}");
         }
     }
 }
